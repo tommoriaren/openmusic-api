@@ -64,15 +64,3 @@ Database schema changes are handled through **migration scripts**, ensuring vers
 - **dotenv** (Environment configuration)
 
 ---
-
-## 🗂️ Project Structure
-
-src/
-├── api/ # HTTP layer (handlers & routes)
-├── services/ # Business logic & database access
-├── validator/ # Joi schemas & validation logic
-├── exceptions/ # Custom error handling
-├── utils/ # Helper utilities
-├── database/
-│ └── migrations/ # Database migration files
-└── server.js
