@@ -1,59 +1,78 @@
 # OpenMusic API 🎵
 
-OpenMusic API adalah RESTful API yang dikembangkan untuk mendukung aplikasi pemutar musik terbuka bernama **OpenMusic**. API ini dibangun menggunakan **Node.js**, **Express**, dan **PostgreSQL**, serta menerapkan praktik pengembangan back-end yang terstruktur dan mudah dikembangkan.
+OpenMusic API is a RESTful backend service built to support an open-source music streaming application.  
+This project demonstrates clean backend architecture, database migration, and data validation using modern Node.js practices.
 
 ---
 
-## 📖 Studi Kasus
+## 🚀 Project Overview
 
-Anda sebagai seorang **Back-End Developer** mendedikasikan diri untuk bergabung dengan tim **TSC (Technical Steering Committee)** dalam mengembangkan aplikasi pemutar musik terbuka bernama **OpenMusic**.
+OpenMusic is an open music platform designed to provide free-licensed music for everyone.  
+The application is developed incrementally, starting from a solid backend foundation.
 
-Sesuai namanya, OpenMusic menyediakan musik yang **berlisensi gratis** dan dapat diakses oleh semua orang. Aplikasi ini dikembangkan secara bertahap hingga nantinya memiliki berbagai fitur, seperti:
-- Menambahkan lagu
-- Membuat playlist
-- Memasukkan lagu ke dalam playlist
-- Membagikan playlist kepada pengguna lain
-
-Aplikasi OpenMusic ditargetkan menjadi **aplikasi pemutar musik nomor satu di dunia**.
-
-Saat ini, OpenMusic berada pada **versi pertama**, di mana API masih dalam tahap awal pengembangan. Karena API belum siap, aplikasi belum dapat dirilis ke publik. Pada tahap ini, API OpenMusic diharapkan mampu:
-- Menambahkan data album dan lagu
-- Menampilkan data album dan lagu
-- Mengubah data album dan lagu
-- Menghapus data album dan lagu
-
-Tugas Anda sebagai bagian dari tim TSC adalah **membangun API OpenMusic** sesuai dengan kriteria yang telah ditentukan.
+This repository represents **OpenMusic API – Version 1**, focusing on core data management features for albums and songs.
 
 ---
 
-## ✨ Fitur Utama
+## 🧩 Problem Statement
 
-- Manajemen data **Album**
-  - Tambah album
-  - Lihat album
-  - Ubah album
-  - Hapus album
-- Manajemen data **Song**
-  - Tambah lagu
-  - Lihat daftar lagu
-  - Lihat detail lagu
-  - Ubah lagu
-  - Hapus lagu
-- Validasi payload menggunakan **Joi**
-- Database migration menggunakan **node-pg-migrate**
-- Arsitektur kode terpisah antara **handler**, **service**, dan **validator**
+At the early stage of development, OpenMusic required a reliable backend API to:
+- Store and manage album data
+- Store and manage song data
+- Ensure data consistency and validation
+- Support future feature expansion (playlists, sharing, collaboration)
+
+The challenge was to design a backend that is **simple, scalable, and maintainable**.
 
 ---
 
-## 🧱 Teknologi yang Digunakan
+## 🛠️ Solution
+
+This API was built with a clear separation of concerns:
+- **Handler Layer** – HTTP request handling
+- **Service Layer** – Business logic and database interaction
+- **Validator Layer** – Request payload validation
+
+Database schema changes are handled through **migration scripts**, ensuring versioned and repeatable database evolution.
+
+---
+
+## ✨ Features
+
+### Albums
+- Create album
+- Retrieve album details
+- Update album
+- Delete album
+
+### Songs
+- Create song
+- Retrieve song list with filtering
+- Retrieve song details
+- Update song
+- Delete song
+
+---
+
+## 🧱 Tech Stack
 
 - **Node.js**
 - **Express**
 - **PostgreSQL**
-- **node-pg-migrate**
-- **Joi**
-- **dotenv**
+- **node-pg-migrate** (Database migration)
+- **Joi** (Data validation)
+- **dotenv** (Environment configuration)
 
 ---
 
+## 🗂️ Project Structure
 
+src/
+├── api/ # HTTP layer (handlers & routes)
+├── services/ # Business logic & database access
+├── validator/ # Joi schemas & validation logic
+├── exceptions/ # Custom error handling
+├── utils/ # Helper utilities
+├── database/
+│ └── migrations/ # Database migration files
+└── server.js
