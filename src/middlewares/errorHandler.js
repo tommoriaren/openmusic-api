@@ -1,6 +1,9 @@
 import ClientError from '../exceptions/ClientError.js';
 
 const errorHandler = (err, req, res, _next) => {
+  console.error(err);
+
+  // Client Error (400, 401, 403, 404)
   if (err instanceof ClientError) {
     return res.status(err.statusCode).json({
       status: 'fail',
@@ -8,11 +11,10 @@ const errorHandler = (err, req, res, _next) => {
     });
   }
 
-  console.error(err);
-
+  // Server Error (500)
   return res.status(500).json({
     status: 'error',
-    message: 'Terjadi kegagalan pada server',
+    message: 'Terjadi kegagalan pada server kami.',
   });
 };
 
